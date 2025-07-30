@@ -13,7 +13,7 @@ export function HeroSection() {
       <div className="relative z-10 container px-4 md:px-6">
         <AnimateOnScroll className="flex flex-col items-center space-y-6">
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl text-balance">
-            لأ. إرواء من قلب الطبيعة
+            <span className="p-1 bg-green-500">لأ</span>. إرواء من قلب الطبيعة
           </h1>
           <p className="max-w-[700px] text-lg md:text-xl text-gray-200 text-balance">
             مياهنا مستخرجة من ينابيع عربية عريقة، محفوظة في حالتها البكر لتروي عطشك وتنعش روحك.
