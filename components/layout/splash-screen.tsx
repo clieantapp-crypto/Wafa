@@ -15,7 +15,7 @@ export function SplashScreen({ isVisible }: SplashScreenProps) {
     >
       <div className="animate-pulse flex flex-col items-center gap-4">
         <DropletsIcon className="h-16 w-16 text-primary" />
-        <span className="text-4xl font-bold text-primary">نقاء</span>
+        <span className="text-4xl font-bold text-primary">لأ</span>
       </div>
     </div>
   )

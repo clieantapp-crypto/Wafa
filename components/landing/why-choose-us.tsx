@@ -8,7 +8,7 @@ export function WhyChooseUs() {
         <AnimateOnScroll className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-3">
             <div className="inline-block rounded-lg bg-white px-3 py-1 text-sm border">لماذا تختارنا؟</div>
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-gray-900">إرث من النقاء والجودة</h2>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-gray-900">إرث من اللأ والجودة</h2>
             <p className="max-w-[900px] text-gray-600 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
               تتم تصفية مياهنا بشكل طبيعي وتُعزز بالمعادن الأساسية، مما يمنحها مذاقًا منعشًا ونقيًا توارثته الأجيال.
             </p>

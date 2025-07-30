@@ -15,20 +15,20 @@ const tajawal = Tajawal({
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://your-domain.com"
 
 export const metadata: Metadata = {
-  title: "نقاء - المياه النقية من الينابيع العربية",
-  description: "تجربة نقاء الينابيع العربية الأصيلة، توصيل مباشر إلى منزلك.",
+  title: "لأ - المياه النقية من الينابيع العربية",
+  description: "تجربة لأ الينابيع العربية الأصيلة، توصيل مباشر إلى منزلك.",
   metadataBase: new URL(siteUrl),
   openGraph: {
-    title: "نقاء - المياه النقية من الينابيع العربية",
+    title: "لأ - المياه النقية من الينابيع العربية",
     description: "مياهنا مستخرجة من ينابيع عربية عريقة، محفوظة في حالتها البكر لتروي عطشك وتنعش روحك.",
     url: siteUrl,
-    siteName: "نقاء",
+    siteName: "لأ",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "مياه نقاء الفاخرة",
+        alt: "مياه لأ الفاخرة",
       },
     ],
     locale: "ar_JO",
@@ -36,8 +36,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "نقاء - المياه النقية من الينابيع العربية",
-    description: "تجربة نقاء الينابيع العربية الأصيلة، توصيل مباشر إلى منزلك.",
+    title: "لأ - المياه النقية من الينابيع العربية",
+    description: "تجربة لأ الينابيع العربية الأصيلة، توصيل مباشر إلى منزلك.",
     images: ["/og-image.png"],
   },
     generator: 'v0.dev'

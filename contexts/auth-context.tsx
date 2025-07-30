@@ -45,7 +45,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       await signInWithEmailAndPassword(auth, email, password)
       toast({
         title: "تم تسجيل الدخول بنجاح",
-        description: "مرحباً بك في نقاء",
+        description: "مرحباً بك في لأ",
       })
     } catch (error: any) {
       toast({
@@ -73,7 +73,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
       toast({
         title: "تم إنشاء الحساب بنجاح",
-        description: "مرحباً بك في نقاء",
+        description: "مرحباً بك في لأ",
       })
     } catch (error: any) {
       toast({
@@ -102,7 +102,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
       toast({
         title: "تم تسجيل الدخول بنجاح",
-        description: "مرحباً بك في نقاء",
+        description: "مرحباً بك في لأ",
       })
     } catch (error: any) {
       toast({

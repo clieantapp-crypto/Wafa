@@ -11,7 +11,7 @@ export function SubscriptionSection() {
           <div className="space-y-3">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-gray-900">انتعاش دائم، بدون عناء</h2>
             <p className="max-w-[900px] text-gray-600 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              انضم إلى خدمة الاشتراك من "نقاء" واحصل على مياهك النقية بانتظام. راحة، توفير، ومرونة في خدمتك.
+              انضم إلى خدمة الاشتراك من "لأ" واحصل على مياهك النقية بانتظام. راحة، توفير، ومرونة في خدمتك.
             </p>
           </div>
         </AnimateOnScroll>

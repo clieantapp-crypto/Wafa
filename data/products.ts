@@ -12,7 +12,7 @@ export const products: Product[] = [
   {
     id: "prod_01",
     name: "مياه الواحة النقية",
-    description: "نقاء مطلق من ينابيع محمية.",
+    description: "لأ مطلق من ينابيع محمية.",
     price: 2.5,
     image: "/product-1.png",
     category: "مياه طبيعية",
@@ -38,7 +38,7 @@ export const products: Product[] = [
   },
   {
     id: "prod_04",
-    name: "نقاء الحياة",
+    name: "لأ الحياة",
     description: "عبوة زجاجية فاخرة.",
     price: 4.0,
     image: "/2water-bottle.webp",
