@@ -12,21 +12,21 @@ const products = [
     name: "مياه الواحة النقية",
     description: "عبوة 500 مل",
     price: 2.5,
-    image: "/product-1.png",
+    image: "/2water-bottle.webp",
   },
   {
     id: "prod_02",
     name: "نجمة الصحراء الفوارة",
     description: "عبوة 750 مل",
     price: 3.75,
-    image: "/product-2.png",
+    image: "/2water-bottle.webp",
   },
   {
     id: "prod_03",
     name: "كنز العائلة",
     description: "عبوة 5 لتر",
     price: 7.0,
-    image: "/product-3.png",
+    image: "/2water-bottle.webp",
   },
 ]
 
