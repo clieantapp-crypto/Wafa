@@ -1,9 +1,10 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Tajawal } from 'next/font/google'
+import { Tajawal } from "next/font/google"
 import "./globals.css"
 import { cn } from "@/lib/utils"
 import { CartProvider } from "@/contexts/cart-context"
+import { AuthProvider } from "@/contexts/auth-context"
 import { Toaster } from "@/components/ui/toaster"
 
 const tajawal = Tajawal({
@@ -50,10 +51,12 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl">
       <body className={cn("bg-secondary text-gray-800", tajawal.className)}>
-        <CartProvider>
-          {children}
-          <Toaster />
-        </CartProvider>
+        <AuthProvider>
+          <CartProvider>
+            {children}
+            <Toaster />
+          </CartProvider>
+        </AuthProvider>
       </body>
     </html>
   )
