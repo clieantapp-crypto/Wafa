@@ -7,11 +7,10 @@ import { Testimonials } from "@/components/landing/testimonials"
 import { OurStorySection } from "@/components/landing/our-story-section"
 import { ContactSection } from "@/components/landing/contact-section"
 import { Footer } from "@/components/layout/footer"
-import { PageWrapper } from "@/components/layout/page-wrapper"
 
 export default function LandingPage() {
   return (
-    <PageWrapper>
+    <>
       <Header />
       <main className="flex-1">
         <HeroSection />
@@ -23,6 +22,6 @@ export default function LandingPage() {
         <ContactSection />
       </main>
       <Footer />
-    </PageWrapper>
+    </>
   )
 }
