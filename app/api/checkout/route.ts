@@ -1,23 +1,29 @@
 import { NextResponse } from "next/server"
+import { createOrder } from "@/lib/firebase/orders"
 
 export async function POST(request: Request) {
   try {
     const body = await request.json()
-    const { cart, total, shippingInfo } = body
+    const { cart, total, shippingInfo, userId } = body
 
     // Basic validation
-    if (!cart || !total || !shippingInfo) {
+    if (!cart || !total || !shippingInfo || !userId) {
       return NextResponse.json({ message: "بيانات الطلب غير مكتملة." }, { status: 400 })
     }
 
-    // Here you would typically process the payment with a real payment gateway like Stripe, Moyasar, etc.
-    // For this simulation, we'll just pretend it was successful after a short delay.
+    // Simulate payment processing delay
     await new Promise((resolve) => setTimeout(resolve, 1500))
 
-    // Simulate a successful payment and generate a mock order ID
-    const orderId = `NQA-${Date.now()}`
+    // Create order in Firestore
+    const orderId = await createOrder({
+      userId,
+      items: cart,
+      total,
+      shippingInfo,
+      status: "pending",
+    })
 
-    console.log("Order processed successfully:", { orderId, total, customer: shippingInfo.fullName })
+    console.log("Order created successfully:", { orderId, total, customer: shippingInfo.fullName })
 
     return NextResponse.json({ success: true, orderId: orderId })
   } catch (error) {

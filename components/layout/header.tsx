@@ -17,7 +17,7 @@ export function Header() {
       <header className="px-4 lg:px-6 h-16 flex items-center bg-white/80 backdrop-blur-lg shadow-sm sticky top-0 z-50">
         <Link href="/" className="flex items-center justify-center" prefetch={false}>
           <DropletsIcon className="h-6 w-6 text-primary" />
-          <span className="mr-3 text-xl font-bold text-primary">لأ</span>
+          <span className="mr-3 text-xl font-bold text-primary">نقاء</span>
         </Link>
         <nav className="mr-auto hidden lg:flex gap-6">
           <Link

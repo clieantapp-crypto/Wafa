@@ -4,12 +4,13 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
 import { useRouter } from "next/navigation"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 import { Button } from "@/components/ui/button"
 import { Form } from "@/components/ui/form"
 import { useToast } from "@/components/ui/use-toast"
 import { useCart } from "@/contexts/cart-context"
+import { useAuth } from "@/contexts/auth-context"
 
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
@@ -37,6 +38,7 @@ type CheckoutFormValues = z.infer<typeof checkoutFormSchema>
 
 export default function CheckoutPage() {
   const { items, totalPrice, clearCart } = useCart()
+  const { user, loading: authLoading } = useAuth()
   const router = useRouter()
   const { toast } = useToast()
   const [isLoading, setIsLoading] = useState(false)
@@ -45,10 +47,37 @@ export default function CheckoutPage() {
     resolver: zodResolver(checkoutFormSchema),
     defaultValues: {
       country: "الأردن",
+      fullName: user?.displayName || "",
     },
   })
 
+  useEffect(() => {
+    if (!authLoading && !user) {
+      toast({
+        title: "تسجيل الدخول مطلوب",
+        description: "يجب تسجيل الدخول لإتمام عملية الشراء.",
+        variant: "destructive",
+      })
+      router.push("/login")
+    }
+  }, [user, authLoading, router, toast])
+
+  useEffect(() => {
+    if (user?.displayName) {
+      form.setValue("fullName", user.displayName)
+    }
+  }, [user, form])
+
   async function onSubmit(data: CheckoutFormValues) {
+    if (!user) {
+      toast({
+        title: "خطأ في المصادقة",
+        description: "يجب تسجيل الدخول لإتمام الطلب.",
+        variant: "destructive",
+      })
+      return
+    }
+
     setIsLoading(true)
     try {
       const response = await fetch("/api/checkout", {
@@ -58,6 +87,7 @@ export default function CheckoutPage() {
           cart: items,
           total: totalPrice,
           shippingInfo: data,
+          userId: user.uid,
         }),
       })
 
@@ -84,6 +114,22 @@ export default function CheckoutPage() {
     } finally {
       setIsLoading(false)
     }
+  }
+
+  if (authLoading) {
+    return (
+      <div className="flex flex-col min-h-screen">
+        <Header />
+        <main className="flex-1 flex items-center justify-center">
+          <Loader2 className="h-8 w-8 animate-spin" />
+        </main>
+        <Footer />
+      </div>
+    )
+  }
+
+  if (!user) {
+    return null
   }
 
   if (items.length === 0 && !isLoading) {
