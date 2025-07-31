@@ -1,11 +1,17 @@
+"use client"
 import { Button } from "@/components/ui/button"
 import { AnimateOnScroll } from "@/components/ui/animate-on-scroll"
+import { useRouter } from "next/navigation"
 
 export function HeroSection() {
+  const router=useRouter()
+  const handleProductsPage=()=>{
+    router.push("/products") 
+  }
   return (
     <section className="relative w-full h-[80vh] md:h-[90vh] flex items-center justify-center text-center text-white overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full z-0">
-        <video autoPlay loop muted playsInline className="w-full h-full object-cover" poster="/hero-poster.png">
+        <video autoPlay loop muted playsInline className="w-full h-full object-cover" poster="/pexels-pixabay-327090.jpg">
           <source src="https://videos.pexels.com/video-files/3958714/3958714-hd_1920_1080_30fps.mp4" type="video/mp4" />
         </video>
         <div className="absolute top-0 left-0 w-full h-full bg-black/50"></div>
@@ -19,10 +25,10 @@ export function HeroSection() {
             مياهنا مستخرجة من ينابيع عربية عريقة، محفوظة في حالتها البكر لتروي عطشك وتنعش روحك.
           </p>
           <div className="flex flex-col gap-4 min-[400px]:flex-row justify-center">
-            <Button size="lg" className="bg-white text-primary hover:bg-gray-200">
+            <Button onClick={()=>handleProductsPage()} size="lg" className="bg-white text-primary hover:bg-gray-200">
               اكتشف منتجاتنا
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 bg-transparent">
+            <Button onClick={()=>handleProductsPage()}size="lg" variant="outline" className="border-white text-white hover:bg-white/10 bg-transparent">
               اشترك الآن
             </Button>
           </div>
