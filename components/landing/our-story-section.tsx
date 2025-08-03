@@ -88,7 +88,7 @@ export function OurStorySection() {
             {/* Key Story Points */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {storyPoints.map((point, idx) => (
-                <AnimateOnScroll key={idx} delay={200 + idx * 50}>
+                <AnimateOnScroll key={idx} delay={(200 + idx * 50).toString()}>
                   <div className="flex items-start gap-4 text-right">
                     <div className="flex-shrink-0 p-3 rounded-full bg-emerald-500/10 text-emerald-600">
                       <point.icon className="w-6 h-6" />
