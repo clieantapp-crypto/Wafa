@@ -1,20 +1,21 @@
 "use client"
 
-import { createContext, useContext, useState, type ReactNode } from "react"
+import { createContext, useState, useContext, useMemo, type ReactNode } from "react"
+import { useToast } from "@/components/ui/use-toast"
 
-interface CartItem {
+export interface CartItem {
   id: string
   name: string
   price: number
+  image: string
   quantity: number
-  selectedSize?: any
 }
 
 interface CartContextType {
   items: CartItem[]
-  addToCart: (product: any) => void
-  removeFromCart: (id: string) => void
-  updateQuantity: (id: string, quantity: number) => void
+  addToCart: (item: Omit<CartItem, "quantity">) => void
+  removeFromCart: (itemId: string) => void
+  updateQuantity: (itemId: string, quantity: number) => void
   clearCart: () => void
   totalItems: number
   totalPrice: number
@@ -24,58 +25,49 @@ const CartContext = createContext<CartContextType | undefined>(undefined)
 
 export function CartProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([])
+  const { toast } = useToast()
 
-  const addToCart = (product: any) => {
-    setItems((prev) => {
-      const existingItem = prev.find((item) => item.id === product.id)
+  const addToCart = (itemToAdd: Omit<CartItem, "quantity">) => {
+    setItems((prevItems) => {
+      const existingItem = prevItems.find((item) => item.id === itemToAdd.id)
       if (existingItem) {
-        return prev.map((item) =>
-          item.id === product.id ? { ...item, quantity: item.quantity + (product.quantity || 1) } : item,
-        )
+        return prevItems.map((item) => (item.id === itemToAdd.id ? { ...item, quantity: item.quantity + 1 } : item))
       }
-      return [
-        ...prev,
-        {
-          id: product.id,
-          name: product.name,
-          price: product.selectedSize?.price || product.price,
-          quantity: product.quantity || 1,
-          selectedSize: product.selectedSize,
-        },
-      ]
+      return [...prevItems, { ...itemToAdd, quantity: 1 }]
+    })
+    toast({
+      title: "تمت الإضافة إلى السلة",
+      description: `${itemToAdd.name} أُضيف إلى عربة التسوق.`,
     })
   }
 
-  const removeFromCart = (id: string) => {
-    setItems((prev) => prev.filter((item) => item.id !== id))
+  const removeFromCart = (itemId: string) => {
+    setItems((prevItems) => prevItems.filter((item) => item.id !== itemId))
   }
 
-  const updateQuantity = (id: string, quantity: number) => {
+  const updateQuantity = (itemId: string, quantity: number) => {
     if (quantity <= 0) {
-      removeFromCart(id)
-      return
+      removeFromCart(itemId)
+    } else {
+      setItems((prevItems) => prevItems.map((item) => (item.id === itemId ? { ...item, quantity } : item)))
     }
-    setItems((prev) => prev.map((item) => (item.id === id ? { ...item, quantity } : item)))
   }
 
   const clearCart = () => {
     setItems([])
   }
 
-  const totalItems = items.reduce((sum, item) => sum + item.quantity, 0)
-  const totalPrice = items.reduce((sum, item) => sum + item.price * item.quantity, 0)
+  const totalItems = useMemo(() => {
+    return items.reduce((total, item) => total + item.quantity, 0)
+  }, [items])
+
+  const totalPrice = useMemo(() => {
+    return items.reduce((total, item) => total + item.price * item.quantity, 0)
+  }, [items])
 
   return (
     <CartContext.Provider
-      value={{
-        items,
-        addToCart,
-        removeFromCart,
-        updateQuantity,
-        clearCart,
-        totalItems,
-        totalPrice,
-      }}
+      value={{ items, addToCart, removeFromCart, updateQuantity, clearCart, totalItems, totalPrice }}
     >
       {children}
     </CartContext.Provider>
