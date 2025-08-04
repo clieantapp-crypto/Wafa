@@ -32,7 +32,6 @@ export function ProductCard({ product, delay = "0ms", viewMode = "grid" }: Produ
   const { addToCart } = useCart()
   const [isLiked, setIsLiked] = useState(false)
   const [imageLoaded, setImageLoaded] = useState(false)
-``
   const handleAddToCart = () => {
     addToCart({
       id: product.id,

@@ -12,7 +12,7 @@ export interface CartItem {
 
 interface CartContextType {
   items: CartItem[]
-  addToCart: (item: Omit<CartItem, "quantity">) => void
+  addToCart: (item:any) => void
   removeFromCart: (itemId: string) => void
   updateQuantity: (itemId: string, quantity: number) => void
   clearCart: () => void
@@ -26,7 +26,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([])
   const { toast } = useToast()
 
-  const addToCart = (itemToAdd: Omit<CartItem, "quantity">) => {
+  const addToCart = (itemToAdd:any) => {
     setItems((prevItems) => {
       const existingItem = prevItems.find((item) => item.id === itemToAdd.id)
       if (existingItem) {
