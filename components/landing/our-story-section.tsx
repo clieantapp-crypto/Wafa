@@ -48,8 +48,8 @@ export function OurStorySection() {
           {/* Image Section */}
           <AnimateOnScroll className="relative group">
             <div className="relative w-full h-[400px] md:h-[550px] rounded-3xl overflow-hidden shadow-2xl transform group-hover:scale-[1.02] transition-transform duration-500 ease-out">
-              <Image
-                src="/story-image-2.png"
+              <img
+                src="/pexels-pixabay-327090.jpg"
                 width={800}
                 height={800}
                 alt="مصدر المياه الطبيعي"
