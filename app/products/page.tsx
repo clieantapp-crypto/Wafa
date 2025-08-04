@@ -66,10 +66,10 @@ export default function ProductsPage() {
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-cyan-50/20">
+    <div className="flex flex-col min-h-screen bg-gradient-to-br from-slate-50 via-teal-50/30 to-emerald-50/20">
       {/* Background Elements */}
       <div className="fixed inset-0 bg-grid-slate-100/50 [mask-image:radial-gradient(ellipse_at_center,white,transparent)] -z-10" />
-      <div className="fixed top-0 right-1/4 w-96 h-96 bg-gradient-to-br from-blue-400/10 to-cyan-400/10 rounded-full blur-3xl -z-10" />
+      <div className="fixed top-0 right-1/4 w-96 h-96 bg-gradient-to-br from-teal-400/10 to-emerald-400/10 rounded-full blur-3xl -z-10" />
       <div className="fixed bottom-0 left-1/4 w-96 h-96 bg-gradient-to-tr from-emerald-400/10 to-teal-400/10 rounded-full blur-3xl -z-10" />
 
       <Header />
@@ -78,13 +78,13 @@ export default function ProductsPage() {
         <div className="container px-4 md:px-6">
           {/* Hero Section */}
           <AnimateOnScroll className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-blue-200/50 text-blue-800 px-6 py-3 rounded-full text-sm font-medium mb-6 shadow-sm">
+            <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-teal-200/50 text-teal-800 px-6 py-3 rounded-full text-sm font-medium mb-6 shadow-sm">
               <Package className="h-4 w-4" />
               منتجاتنا المميزة
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 mb-6">
               اكتشف مجموعة
-              <span className="block bg-gradient-to-r from-blue-600 via-cyan-600 to-teal-600 bg-clip-text text-transparent">
+              <span className="block bg-gradient-to-r from-teal-600 via-emerald-600 to-teal-600 bg-clip-text text-transparent">
                 المياه النقية
               </span>
             </h1>
@@ -103,7 +103,7 @@ export default function ProductsPage() {
                   placeholder="ابحث عن المنتجات..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pr-12 h-12 text-lg border-gray-200 focus:border-blue-500 focus:ring-blue-500/20 rounded-xl"
+                  className="pr-12 h-12 text-lg border-gray-200 focus:border-teal-500 focus:ring-teal-500/20 rounded-xl"
                 />
               </div>
 
@@ -136,7 +136,7 @@ export default function ProductsPage() {
                         <ToggleGroupItem
                           key={category}
                           value={category}
-                          className="data-[state=on]:bg-blue-500 data-[state=on]:text-white data-[state=on]:border-blue-500 hover:bg-blue-50 transition-colors duration-200"
+                          className="data-[state=on]:bg-teal-500 data-[state=on]:text-white data-[state=on]:border-teal-500 hover:bg-teal-50 transition-colors duration-200"
                         >
                           <Droplets className="h-4 w-4 ml-2" />
                           {category}
@@ -152,7 +152,7 @@ export default function ProductsPage() {
                   <div className="flex items-center gap-2">
                     <Label className="text-gray-700 font-medium whitespace-nowrap">ترتيب:</Label>
                     <Select value={sortOrder} onValueChange={setSortOrder}>
-                      <SelectTrigger className="w-[200px] border-gray-200 focus:border-blue-500">
+                      <SelectTrigger className="w-[200px] border-gray-200 focus:border-teal-500">
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
@@ -226,7 +226,7 @@ export default function ProductsPage() {
                   key={product.id}
                   product={product}
                   delay={`${(index % 8) * 50}ms`}
-                  viewMode={viewMode}
+                  viewMode={viewMode as any}
                 />
               ))}
             </div>
@@ -240,7 +240,7 @@ export default function ProductsPage() {
                 <p className="text-gray-600 mb-8 max-w-md mx-auto">
                   لم نجد أي منتجات تطابق معايير البحث الحالية. جرب تعديل الفلاتر أو البحث بكلمات مختلفة.
                 </p>
-                <Button onClick={clearFilters} className="bg-blue-500 hover:bg-blue-600">
+                <Button onClick={clearFilters} className="bg-teal-500 hover:bg-teal-600">
                   مسح جميع الفلاتر
                 </Button>
               </div>
@@ -253,7 +253,7 @@ export default function ProductsPage() {
               <Button
                 variant="outline"
                 size="lg"
-                className="bg-white/80 backdrop-blur-sm border-gray-200 hover:bg-white hover:border-blue-300 transition-all duration-300"
+                className="bg-white/80 backdrop-blur-sm border-gray-200 hover:bg-white hover:border-teal-300 transition-all duration-300"
               >
                 عرض المزيد من المنتجات
               </Button>

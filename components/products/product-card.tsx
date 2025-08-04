@@ -39,6 +39,7 @@ export function ProductCard({ product, delay = "0ms", viewMode = "grid" }: Produ
       price: product.price,
       image:product.image
     })
+  }
 
   if (viewMode === "list") {
     return (
