@@ -32,7 +32,7 @@ export function OurStorySection() {
   return (
     <section
       id="story"
-      className="w-full py-16 md:py-24 lg:py-32 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden"
+      className="w-full py-16 md:py-24 lg:py-32 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden  flex flex-col items-center justify-center"
     >
       {/* Background Pattern */}
       <div

@@ -94,7 +94,8 @@ export function Header() {
               </Link>
             ) : (
               <Link href="/login">
-                <Button variant="outline" size="sm">
+                <Button variant="default" size="sm"
+                     className="bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white font-semibold px-8 py-4 text-lg rounded-full shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
                   تسجيل الدخول
                 </Button>
               </Link>

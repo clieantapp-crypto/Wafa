@@ -1,5 +1,4 @@
 "use client"
-
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -167,7 +166,7 @@ export function ProductSection() {
     })
   }
 
-  const getProductPrice = (product: any) => {
+  const getProductPrice = (product: (typeof products)[0]) => {
     const sizeIndex = selectedSizes[product.id] || 0
     return product.sizes[sizeIndex]
   }
@@ -176,7 +175,9 @@ export function ProductSection() {
     return [...Array(5)].map((_, i) => (
       <Star
         key={i}
-        className={`w-4 h-4 ${i < Math.floor(rating) ? "fill-yellow-400 text-yellow-400" : "fill-gray-200 text-gray-200"}`}
+        className={`w-4 h-4 ${
+          i < Math.floor(rating) ? "fill-yellow-400 text-yellow-400" : "fill-gray-200 text-gray-200"
+        }`}
       />
     ))
   }
@@ -189,7 +190,6 @@ export function ProductSection() {
       {/* Background Decorations */}
       <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-full blur-3xl opacity-60"></div>
       <div className="absolute bottom-20 right-10 w-40 h-40 bg-gradient-to-br from-emerald-100 to-teal-100 rounded-full blur-3xl opacity-60"></div>
-
       <div className="container px-4 md:px-6 relative z-10">
         {/* Header Section */}
         <AnimateOnScroll className="text-center mb-16">
@@ -197,16 +197,13 @@ export function ProductSection() {
             <Droplets className="w-4 h-4" />
             <span>مجموعة متنوعة من المياه الفاخرة</span>
           </div>
-
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 mb-6">تشكيلتنا الفاخرة</h2>
-
           <p className="max-w-3xl mx-auto text-xl text-gray-600 leading-relaxed">
             اكتشف مجموعتنا المتنوعة من عبوات المياه الفاخرة
             <br />
             المثالية لكل مناسبة واحتياج
           </p>
         </AnimateOnScroll>
-
         {/* Products Grid */}
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
           {products.map((product, index) => {
@@ -216,7 +213,6 @@ export function ProductSection() {
               ((selectedSize.originalPrice - selectedSize.price) / selectedSize.originalPrice) *
               100
             ).toFixed(0)
-
             return (
               <AnimateOnScroll key={product.id} delay={index * 100}>
                 <Card className="group overflow-hidden bg-white border-0 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 relative">
@@ -226,7 +222,6 @@ export function ProductSection() {
                       {product.badge}
                     </Badge>
                   </div>
-
                   {/* Favorite Button */}
                   <button
                     onClick={() => toggleFavorite(product.id)}
@@ -238,7 +233,6 @@ export function ProductSection() {
                       }`}
                     />
                   </button>
-
                   <CardContent className="p-0">
                     {/* Product Image */}
                     <div className="relative overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100">
@@ -249,7 +243,6 @@ export function ProductSection() {
                         alt={product.name}
                         className="aspect-square object-cover group-hover:scale-110 transition-transform duration-500"
                       />
-
                       {/* Quick View Overlay */}
                       <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                         <Button
@@ -261,7 +254,6 @@ export function ProductSection() {
                           عرض سريع
                         </Button>
                       </div>
-
                       {/* Stock Indicator */}
                       {product.stockCount < 50 && (
                         <div className="absolute bottom-4 left-4 bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
@@ -269,7 +261,6 @@ export function ProductSection() {
                         </div>
                       )}
                     </div>
-
                     {/* Product Info */}
                     <div className="p-6 space-y-4">
                       {/* Category & Rating */}
@@ -282,7 +273,6 @@ export function ProductSection() {
                           <span className="text-sm text-gray-500 mr-1">({product.reviewCount})</span>
                         </div>
                       </div>
-
                       {/* Product Name & Description */}
                       <div className="space-y-2">
                         <h3 className="text-xl font-bold text-gray-900 group-hover:text-emerald-600 transition-colors duration-300">
@@ -290,7 +280,6 @@ export function ProductSection() {
                         </h3>
                         <p className="text-gray-600 text-sm leading-relaxed">{product.description}</p>
                       </div>
-
                       {/* Features */}
                       <div className="flex flex-wrap gap-2">
                         {product.features.map((feature, featureIndex) => (
@@ -303,7 +292,6 @@ export function ProductSection() {
                           </div>
                         ))}
                       </div>
-
                       {/* Size Selection */}
                       <div className="space-y-2">
                         <label className="text-sm font-medium text-gray-700">الحجم:</label>
@@ -323,11 +311,12 @@ export function ProductSection() {
                           ))}
                         </div>
                       </div>
-
                       {/* Price & Savings */}
                       <div className="space-y-2">
                         <div className="flex items-center gap-3">
-                          <span className="text-2xl font-bold text-gray-900">{selectedSize.price.toFixed(2)} ريال</span>
+                          <span className="text-2xl font-bold text-gray-900">
+                            {selectedSize.price.toFixed(2)} دينار
+                          </span>
                           {selectedSize.originalPrice > selectedSize.price && (
                             <>
                               <span className="text-lg text-gray-500 line-through">
@@ -338,7 +327,6 @@ export function ProductSection() {
                           )}
                         </div>
                       </div>
-
                       {/* Quantity & Add to Cart */}
                       <div className="flex items-center gap-3 pt-2">
                         {/* Quantity Selector */}
@@ -360,17 +348,22 @@ export function ProductSection() {
                             <Plus className="w-4 h-4 text-gray-600" />
                           </button>
                         </div>
-
                         {/* Add to Cart Button */}
                         <Button
                           className="flex-1 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white font-semibold py-3 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
-                          onClick={() => addToCart({ ...product, selectedSize, quantity })}
+                          onClick={() =>
+                            addToCart({
+                              id: product.id,
+                              name: product.name,
+                              image: product.image,
+                              price: selectedSize.price,
+                            })
+                          }
                         >
                           <ShoppingCart className="w-4 h-4 mr-2" />
                           أضف للسلة
                         </Button>
                       </div>
-
                       {/* Trust Indicators */}
                       <div className="flex items-center justify-between text-xs text-gray-500 pt-2 border-t border-gray-100">
                         <div className="flex items-center gap-1">
@@ -393,7 +386,6 @@ export function ProductSection() {
             )
           })}
         </div>
-
         {/* Bottom CTA */}
         <AnimateOnScroll className="text-center mt-16">
           <div className="bg-gradient-to-r from-emerald-50 to-teal-50 rounded-3xl p-8 max-w-4xl mx-auto border border-emerald-100">

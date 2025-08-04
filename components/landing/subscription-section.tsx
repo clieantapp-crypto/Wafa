@@ -59,7 +59,7 @@ export function SubscriptionSection() {
         "إمكانية تعديل الطلب",
       ],
       popular: false,
-      savings: "وفر 16 ريال",
+      savings: "وفر 16 دينار",
     },
     {
       name: "العائلي",
@@ -76,7 +76,7 @@ export function SubscriptionSection() {
         "تطبيق إدارة الاشتراك",
       ],
       popular: true,
-      savings: "وفر 41 ريال",
+      savings: "وفر 41 دينار",
     },
     {
       name: "المميز",
@@ -94,13 +94,14 @@ export function SubscriptionSection() {
         "توصيل في نفس اليوم",
       ],
       popular: false,
-      savings: "وفر 71 ريال",
+      savings: "وفر 71 دينار",
     },
   ]
 
   return (
-    <section className="w-full py-16 md:py-24 lg:py-32 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden f">
-      {/* Background Decorations */}
+    <section
+    className="w-full py-16 md:py-24 lg:py-32 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden  flex flex-col items-center justify-center"
+    >      {/* Background Decorations */}
       <div className="absolute top-0 left-0 w-full h-full opacity-30">
         <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-blue-200 to-cyan-200 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 right-10 w-40 h-40 bg-gradient-to-br from-emerald-200 to-teal-200 rounded-full blur-3xl"></div>
@@ -195,7 +196,7 @@ export function SubscriptionSection() {
                       <div className="flex items-center justify-center gap-2">
                         <span className="text-4xl font-bold text-gray-900">{plan.price}</span>
                         <div className="text-right">
-                          <div className="text-sm text-gray-500 line-through">{plan.originalPrice} ريال</div>
+                          <div className="text-sm text-gray-500 line-through">{plan.originalPrice} دينار</div>
                           <div className="text-sm text-gray-600">{plan.period}</div>
                         </div>
                       </div>
