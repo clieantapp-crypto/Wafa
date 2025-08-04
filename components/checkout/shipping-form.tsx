@@ -1,7 +1,8 @@
-import type { UseFormReturn } from "react-hook-form"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { UseFormReturn } from "react-hook-form"
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { MapPin, Phone, User } from 'lucide-react'
 
 interface ShippingFormProps {
   form: UseFormReturn<any>
@@ -9,77 +10,113 @@ interface ShippingFormProps {
 
 export function ShippingForm({ form }: ShippingFormProps) {
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>معلومات الشحن</CardTitle>
-      </CardHeader>
-      <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <FormField
-          control={form.control}
-          name="fullName"
-          render={({ field }) => (
-            <FormItem className="md:col-span-2">
-              <FormLabel>الاسم الكامل</FormLabel>
-              <FormControl>
-                <Input placeholder="ادخل اسمك الكامل" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="address"
-          render={({ field }) => (
-            <FormItem className="md:col-span-2">
-              <FormLabel>العنوان</FormLabel>
-              <FormControl>
-                <Input placeholder="اسم الشارع، رقم المبنى، ..." {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+    <div className="space-y-6">
+      <FormField
+        control={form.control}
+        name="fullName"
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel className="flex items-center gap-2 text-base font-medium">
+              <User className="h-4 w-4 text-slate-500" />
+              الاسم الكامل
+            </FormLabel>
+            <FormControl>
+              <Input 
+                placeholder="أدخل اسمك الكامل" 
+                className="h-12 text-base border-slate-200 focus:border-primary" 
+                {...field} 
+              />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
+
+      <FormField
+        control={form.control}
+        name="phone"
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel className="flex items-center gap-2 text-base font-medium">
+              <Phone className="h-4 w-4 text-slate-500" />
+              رقم الهاتف
+            </FormLabel>
+            <FormControl>
+              <Input 
+                placeholder="07xxxxxxxx" 
+                className="h-12 text-base border-slate-200 focus:border-primary" 
+                {...field} 
+              />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
+
+      <FormField
+        control={form.control}
+        name="address"
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel className="flex items-center gap-2 text-base font-medium">
+              <MapPin className="h-4 w-4 text-slate-500" />
+              العنوان التفصيلي
+            </FormLabel>
+            <FormControl>
+              <Input 
+                placeholder="الشارع، رقم البناية، الحي" 
+                className="h-12 text-base border-slate-200 focus:border-primary" 
+                {...field} 
+              />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <FormField
           control={form.control}
           name="city"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>المدينة</FormLabel>
+              <FormLabel className="text-base font-medium">المدينة</FormLabel>
               <FormControl>
-                <Input placeholder="عمان" {...field} />
+                <Input 
+                  placeholder="عمان" 
+                  className="h-12 text-base border-slate-200 focus:border-primary" 
+                  {...field} 
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
+
         <FormField
           control={form.control}
           name="country"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>الدولة</FormLabel>
-              <FormControl>
-                <Input {...field} disabled />
-              </FormControl>
+              <FormLabel className="text-base font-medium">الدولة</FormLabel>
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <FormControl>
+                  <SelectTrigger className="h-12 text-base border-slate-200 focus:border-primary">
+                    <SelectValue placeholder="اختر الدولة" />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                  <SelectItem value="الأردن">الأردن</SelectItem>
+                  <SelectItem value="فلسطين">فلسطين</SelectItem>
+                  <SelectItem value="لبنان">لبنان</SelectItem>
+                  <SelectItem value="سوريا">سوريا</SelectItem>
+                </SelectContent>
+              </Select>
               <FormMessage />
             </FormItem>
           )}
         />
-        <FormField
-          control={form.control}
-          name="phone"
-          render={({ field }) => (
-            <FormItem className="md:col-span-2">
-              <FormLabel>رقم الهاتف</FormLabel>
-              <FormControl>
-                <Input placeholder="07..." {...field} type="tel" />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   )
 }
