@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils"
 interface AnimateOnScrollProps {
   children: ReactNode
   className?: string
-  delay?: string | number
+  delay?: any
 }
 
 export function AnimateOnScroll({ children, className, delay }: AnimateOnScrollProps) {
