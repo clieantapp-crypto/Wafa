@@ -99,7 +99,7 @@ export function SubscriptionSection() {
   ]
 
   return (
-    <section className="w-full py-16 md:py-24 lg:py-32 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+    <section className="w-full py-16 md:py-24 lg:py-32 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden f">
       {/* Background Decorations */}
       <div className="absolute top-0 left-0 w-full h-full opacity-30">
         <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-blue-200 to-cyan-200 rounded-full blur-3xl"></div>
@@ -107,7 +107,7 @@ export function SubscriptionSection() {
         <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-gradient-to-br from-purple-200 to-pink-200 rounded-full blur-2xl"></div>
       </div>
 
-      <div className="container px-4 md:px-6 relative z-10">
+      <div className="container px-4 md:px-6 relative z-10  flex flex-col items-center justify-center">
         {/* Header Section */}
         <AnimateOnScroll className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-100 text-emerald-700 text-sm font-medium mb-6">
