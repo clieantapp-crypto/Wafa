@@ -14,7 +14,6 @@ export default function OrderConfirmationPage() {
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
-      <Header />
       <main className="flex-1 flex items-center justify-center py-12 md:py-24">
         <Card className="w-full max-w-lg text-center p-8">
           <CardHeader>
@@ -38,7 +37,6 @@ export default function OrderConfirmationPage() {
           </CardContent>
         </Card>
       </main>
-      <Footer />
     </div>
   )
 }

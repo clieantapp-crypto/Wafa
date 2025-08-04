@@ -6,6 +6,8 @@ import { cn } from "@/lib/utils"
 import { CartProvider } from "@/contexts/cart-context"
 import { AuthProvider } from "@/contexts/auth-context"
 import { Toaster } from "@/components/ui/toaster"
+import { Header } from "@/components/layout/header"
+import { Footer } from "@/components/layout/footer"
 
 const tajawal = Tajawal({
   subsets: ["arabic"],
@@ -52,11 +54,18 @@ export default function RootLayout({
     <html lang="ar" dir="rtl">
       <body className={cn("bg-secondary text-gray-800", tajawal.className)}>
         <AuthProvider>
+
           <CartProvider>
+          <Header />
+
             {children}
             <Toaster />
+        <Footer />
+
           </CartProvider>
+          
         </AuthProvider>
+
       </body>
     </html>
   )

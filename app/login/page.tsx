@@ -110,7 +110,6 @@ export default function LoginPage() {
         <Shield className="h-20 w-20 text-cyan-500 animate-pulse" style={{ animationDelay: "1s" }} />
       </div>
 
-      <Header />
 
       <main className="flex-1 flex items-center justify-center py-16 md:py-24 px-4">
         <div className="w-full max-w-md">
@@ -477,8 +476,6 @@ export default function LoginPage() {
           </AnimateOnScroll>
         </div>
       </main>
-
-      <Footer />
     </div>
   )
 }

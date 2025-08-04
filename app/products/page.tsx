@@ -76,8 +76,6 @@ export default function ProductsPage() {
         <div className="fixed top-0 right-1/4 w-96 h-96 bg-gradient-to-br from-teal-400/10 to-emerald-400/10 rounded-full blur-3xl -z-10" />
         <div className="fixed bottom-0 left-1/4 w-96 h-96 bg-gradient-to-tr from-emerald-400/10 to-teal-400/10 rounded-full blur-3xl -z-10" />
 
-        <Header />
-
         <main className="flex-1 py-16 md:py-24 relative">
           <div className="container px-4 md:px-6">
             {/* Hero Section */}
@@ -266,7 +264,6 @@ export default function ProductsPage() {
           </div>
         </main>
 
-        <Footer />
       </div>
     </div>
 

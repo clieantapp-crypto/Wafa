@@ -145,7 +145,6 @@ export default function CheckoutPage() {
   if (items.length === 0 && !isLoading) {
     return (
       <div className="flex flex-col min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
-        <Header />
         <main className="flex-1 flex items-center justify-center">
           <Card className="w-full max-w-md mx-4">
             <CardContent className="text-center py-12">
@@ -266,7 +265,6 @@ export default function CheckoutPage() {
           </Form>
         </div>
       </main>
-      <Footer />
     </div>
   )
 }

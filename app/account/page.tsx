@@ -83,14 +83,12 @@ export default function AccountPage() {
   if (loading) {
     return (
       <div className="flex flex-col min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-cyan-50/20">
-        <Header />
         <main className="flex-1 flex items-center justify-center">
           <div className="text-center">
             <Loader2 className="h-12 w-12 animate-spin text-blue-500 mx-auto mb-4" />
             <p className="text-gray-600">جاري تحميل حسابك...</p>
           </div>
         </main>
-        <Footer />
       </div>
     )
   }
@@ -114,7 +112,6 @@ export default function AccountPage() {
         <User className="h-20 w-20 text-cyan-500 animate-pulse" style={{ animationDelay: "1s" }} />
       </div>
 
-      <Header />
 
       <main className="flex-1 py-16 md:py-24 relative">
         <div className="container max-w-7xl px-4 md:px-6">
@@ -584,8 +581,6 @@ export default function AccountPage() {
           </AnimateOnScroll>
         </div>
       </main>
-
-      <Footer />
     </div>
   )
 }
