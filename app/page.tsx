@@ -10,8 +10,6 @@ import { Footer } from "@/components/layout/footer"
 
 export default function LandingPage() {
   return (
-    <>
-      <Header />
       <main className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
         <HeroSection />
         <WhyChooseUs />
@@ -21,7 +19,5 @@ export default function LandingPage() {
         <OurStorySection />
         <ContactSection />
       </main>
-      <Footer />
-    </>
   )
 }

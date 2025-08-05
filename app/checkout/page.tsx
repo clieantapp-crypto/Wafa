@@ -23,7 +23,6 @@ import { Footer } from "@/components/layout/footer"
 import { ShippingForm } from "@/components/checkout/shipping-form"
 import { PaymentForm } from "@/components/checkout/payment-form"
 import { OrderSummary } from "@/components/checkout/order-summary"
-import { CheckoutProgress } from "@/components/checkout/checkout-progress"
 import { Loader2, ShieldCheck, Truck, CreditCard } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -159,14 +158,12 @@ export default function CheckoutPage() {
             </CardContent>
           </Card>
         </main>
-        <Footer />
       </div>
     )
   }
 
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-br from-slate-50 to-slate-100" dir="rtl">
-      <Header />
       <main className="flex-1 py-8 md:py-12">
         <div className="container max-w-7xl">
           {/* Header Section */}
