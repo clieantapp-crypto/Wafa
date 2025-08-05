@@ -26,6 +26,7 @@ import { OrderSummary } from "@/components/checkout/order-summary"
 import { Loader2, ShieldCheck, Truck, CreditCard } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { CheckoutProgress } from "@/components/checkout/checkout-progress"
 
 const checkoutFormSchema = z.object({
   // Shipping
